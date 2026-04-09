@@ -12,7 +12,10 @@ app = Flask(__name__)
 CORS(app)
 
 # Create Groq client
-client = Groq(api_key=os.getenv("GROQ_API_KEY"))
+client = Groq(
+    api_key=os.getenv("GROQ_API_KEY"),
+    timeout=30.0
+)
 
 # Store conversations
 conversations = {}
